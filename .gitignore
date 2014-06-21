@@ -1,0 +1,11 @@
+*~
+*.DS_Store
+*.RData
+*.Rhistory
+*Third Attempt/
+*cp_writeup_bkup.Rmd
+*cp_writeup_cache/
+*first attempt/
+*pml-testing.csv
+*pml-training.csv
+*second attempt/
