@@ -102,7 +102,7 @@ Predict the 'testing' set and check the confusion matrix
 pred <- predict(model, testing)
 confusionMatrix(pred, testing$classe)
 ```
-The estimated accuracy is 96.65%.
+The estimated accuracy is 96.9%.
 
 Plot the model accuracy, Cohen's Kappa, and resampleHist to understand accuracy of our model
 ```{r plotmodel}
