@@ -84,7 +84,7 @@ str(trainDF2)
 
 We can see that the number of predictors are reduced from 96 to 32.
 
-Lets us train our model using Random Forest algorithm because it predicts the outcome with high accuracy. Since, the size of the training set is relatively smaller, Random Forest algorithm's drawback of lesser execution speed can be ignored. We should expect higher accuracy percentage than 95%.
+Lets us train our model using Random Forest algorithm because it predicts the outcome with high accuracy. Since, the size of the training set is relatively smaller, Random Forest algorithm's drawback of lesser execution speed can be ignored. We should expect higher accuracy percentage than 95%, which means that out of sample error should be less than 5%.
 
 K-Fold cross validation is used during the training. Default value of 10 folds is used in the analysis. As quoted by Wikipedia, "The advantage of this method (K-Fold Cross Validation) over repeated random sub-sampling is that all observations are used for both training and validation, and each observation is used for validation exactly once."
 ```{r train}
@@ -102,7 +102,7 @@ Predict the 'testing' set and check the confusion matrix
 pred <- predict(model, testing)
 confusionMatrix(pred, testing$classe)
 ```
-The estimated accuracy is 96.9%.
+The estimated accuracy is 96.9%. Estimated our of sample error is 3.1%, which is better than the expected out of sample error.
 
 Plot the model accuracy, Cohen's Kappa, and resampleHist to understand accuracy of our model
 ```{r plotmodel}

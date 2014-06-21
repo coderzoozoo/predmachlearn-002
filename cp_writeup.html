@@ -142,7 +142,7 @@ str(trainDF2)</code></pre>
 ##  $ PC31: num  -1.11 -1.08 -1.09 -1.07 -1.08 ...
 ##  $ PC32: num  0.0135 0.0322 0.0108 0.0429 0.06 ...</code></pre>
 <p>We can see that the number of predictors are reduced from 96 to 32.</p>
-<p>Lets us train our model using Random Forest algorithm because it predicts the outcome with high accuracy. Since, the size of the training set is relatively smaller, Random Forest algorithm’s drawback of lesser execution speed can be ignored. We should expect higher accuracy percentage than 95%.</p>
+<p>Lets us train our model using Random Forest algorithm because it predicts the outcome with high accuracy. Since, the size of the training set is relatively smaller, Random Forest algorithm’s drawback of lesser execution speed can be ignored. We should expect higher accuracy percentage than 95%, which means that out of sample error should be less than 5%.</p>
 <p>K-Fold cross validation is used during the training. Default value of 10 folds is used in the analysis. As quoted by Wikipedia, “The advantage of this method (K-Fold Cross Validation) over repeated random sub-sampling is that all observations are used for both training and validation, and each observation is used for validation exactly once.”</p>
 <pre class="r"><code>trainDF2 &lt;- data.frame(classe=outcomeTrainVect, trainDF2)
 inTrain &lt;- createDataPartition(y=trainDF2$classe, p=0.7, list=FALSE)
@@ -185,7 +185,7 @@ confusionMatrix(pred, testing$classe)</code></pre>
 ## Detection Rate          0.280    0.185    0.169    0.154    0.180
 ## Detection Prevalence    0.285    0.190    0.182    0.159    0.183
 ## Balanced Accuracy       0.988    0.974    0.977    0.969    0.989</code></pre>
-<p>The estimated accuracy is 96.9%.</p>
+<p>The estimated accuracy is 96.9%. Estimated our of sample error is 3.1%, which is better than the expected out of sample error.</p>
 <p>Plot the model accuracy, Cohen’s Kappa, and resampleHist to understand accuracy of our model</p>
 <pre class="r"><code>par(oma = c(0,0,2,0))
 plot(model,  main = &quot;Figure 1&quot;)</code></pre>
